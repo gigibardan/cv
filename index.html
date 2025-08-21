@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gheorghe Bardan - Web Developer & Trainer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #1e40af;
+            --accent-color: #06b6d4;
+            --dark-bg: #0f172a;
+            --card-bg: rgba(15, 23, 42, 0.8);
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --gradient-primary: linear-gradient(135deg, #3b82f6, #1e40af, #06b6d4);
+            --gradient-secondary: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--dark-bg);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 120px; height: 120px; top: 70%; left: 80%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 60px; height: 60px; top: 40%; left: 70%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 100px; height: 100px; top: 80%; left: 20%; animation-delay: 6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(20px) rotate(240deg); }
+        }
+
+        /* Header & Language Selector */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .language-selector {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+            min-height: 100vh;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--primary-color);
+            padding: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-info .title {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            width: 16px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .experience-item {
+            padding: 1rem;
+            border-left: 3px solid var(--primary-color);
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .experience-header {
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .company {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .duration {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .job-description {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .tech-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--gradient-secondary);
+            border: 1px solid var(--primary-color);
+            color: var(--text-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .project-card {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .project-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-title a:hover {
+            text-decoration: underline;
+        }
+
+        .project-description {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .tech-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
+        }
+
+        /* Education Section */
+        .education-item {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .institution {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .year {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .experience-grid,
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .header {
+                padding: 1rem;
+            }
+        }
+
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="language-selector">
+            <button class="lang-btn active" onclick="switchLanguage('en', this)">English</button>
+            <button class="lang-btn" onclick="switchLanguage('ro', this)">Română</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- English Content -->
+        <div id="en-content" class="lang-content active">
+            <div class="profile-section">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="https://i.ibb.co/vSb03xq/gigi-crop.webp" alt="Gheorghe Bardan">
+                    </div>
+                    <div class="profile-info">
+                        <h1>Gheorghe Bardan</h1>
+                        <div class="title">Web Developer & Trainer</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>gheorghebardan@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+40721181188</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bucharest, Romania</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="section-card">
+                        <h2 class="section-title">
+                            <i class="fas fa-user"></i>
+                            About Me
+                        </h2>
+                        <p>I consider myself an ambitious person with a continuous desire to learn. I'm a team player, I like challenging projects and I want to develop my knowledge.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Professional Experience
+                </h2>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Web Developer & Trainer</div>
+                        <div class="company">TechMinds Academy, Bucharest</div>
+                        <div class="duration">Jan 2025 - Present (8 months)</div>
+                    </div>
+                    <div class="job-description">
+                        Combined web development and digital education training. Designed and built academy's digital infrastructure including official website, teacher digitalization platform (used by 200+ teachers), eLearning platform (React, Supabase), and “Susține Educația” platform. Worked with Git and VS Code. As trainer, delivered interactive programming and robotics lessons using Roblox Studio, MCreator, etc., and workshops for 200+ teachers.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Website Administrator</div>
+                        <div class="company">jinfotours.ro - J'INFO TOURS, Bucharest</div>
+                        <div class="duration">Dec 2023 - Present (1 year 9 months)</div>
+                    </div>
+                    <div class="job-description">
+                        Managed and optimized online presence: content management, API integrations for product synchronization, frontend development (HTML, CSS, JS/jQuery), visual design for banners, and digital marketing on social media.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Web Developer & UX Designer</div>
+                        <div class="company">jinfotraining.ro - Jinfo Training SRL, Bucharest</div>
+                        <div class="duration">Dec 2023 - Present (1 year 9 months)</div>
+                    </div>
+                    <div class="job-description">
+                        Conceptualized and implemented responsive web platform for HoReCa courses: web architecture, frontend (HTML, CSS, JS, jQuery), backend with Velo by Wix, UX/UI design. Resulted in increased accessibility of training programs.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Web Developer & UX Designer</div>
+                        <div class="company">jinfocruise.ro - JinfoTours SRL, Bucharest</div>
+                        <div class="duration">Dec 2023 - Present (1 year 9 months)</div>
+                    </div>
+                    <div class="job-description">
+                        Developed and managed cruise booking platform using WordPress: site creation (HTML, CSS, JS), booking system integration (CruiseHost), multiple API integrations, UX/UI configuration, GDPR compliance.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">IT Teacher</div>
+                        <div class="company">Academia Micilor Developeri, Bucharest</div>
+                        <div class="duration">Feb 2021 - Present (4 years 7 months)</div>
+                    </div>
+                    <div class="job-description">
+                        Taught IT to children 9-14: block-based programming (Scratch, Tunkable, etc.), robotics (Virtual Robotics Toolkit, Lego), Lua in Roblox Studio. Delivered courses, created new ones, uploaded materials, mentored students.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Front End Web Developer Certification</div>
+                        <div class="company">CodersLab, Bucharest</div>
+                        <div class="duration">Oct 2019 - Dec 2019 (3 months)</div>
+                    </div>
+                    <div class="job-description">
+                        Intensive training: HTML5/CSS3, JavaScript/ES6, SASS, jQuery, ReactJS for SPA development.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Project Manager, Information Security Manager, Data Protection Officer (DPO)</div>
+                        <div class="company">NetBridge / BitFactor SRL, Bucharest</div>
+                        <div class="duration">Nov 2005 - Jul 2019 (13 years 9 months)</div>
+                    </div>
+                    <div class="job-description">
+                        For Okazii.ro platform: Managed projects (documentation, supervision), implemented security systems (fraud prevention, user behavior monitoring), crafted GDPR documentation and ensured compliance.
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-grid">
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Education
+                    </h2>
+                    
+                    <div class="education-item">
+                        <div class="degree">Certified Trainer</div>
+                        <div class="institution">Jinfo Travel</div>
+                        <div class="year">2024</div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="degree">Bachelor's Degree in Journalism and Mass Communication</div>
+                        <div class="institution">University Hyperion Bucharest</div>
+                        <div class="year">2007 - 2010</div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-car"></i>
+                        Other
+                    </h2>
+                    <p>Driving License: Category B (acquired 09 Jan 2009)</p>
+                    <p>Foreign Languages: English - Advanced</p>
+                </div>
+            </div>
+
+            <div class="skills-container">
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i>
+                        Technical Skills
+                    </h2>
+                    <div class="tech-skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">ReactJS</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">jQuery</span>
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Supabase</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">SASS</span>
+                        <span class="skill-tag">API Integration</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">UX/UI Design</span>
+                        <span class="skill-tag">ECMAScript6</span>
+                        <span class="skill-tag">Webpack</span>
+                        <span class="skill-tag">JSON</span>
+                        <span class="skill-tag">C# (beginner)</span>
+                        <span class="skill-tag">Lua</span>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-tools"></i>
+                        Tools & Soft Skills
+                    </h2>
+                    <div class="tech-skills">
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Microsoft Office</span>
+                        <span class="skill-tag">Google Analytics</span>
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">GDPR</span>
+                        <span class="skill-tag">Fraud Prevention</span>
+                        <span class="skill-tag">Teaching</span>
+                        <span class="skill-tag">Mentorship</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Risk Management</span>
+                        <span class="skill-tag">Velo by Wix</span>
+                        <span class="skill-tag">Azure DevOps</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-project-diagram"></i>
+                    Featured Projects
+                </h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://techminds-academy.ro/">TechMinds Academy Website</a></div>
+                        <div class="project-description">Official academy website with presentation and online payment system.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                            <span class="tech-tag">PHP</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://digitalizare.techminds-academy.ro/">Teacher Digitalization Platform</a></div>
+                        <div class="project-description">European program platform used by 200+ trained teachers with interactive lessons and admin dashboard.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://elearning.techminds-academy.ro/">eLearning Platform</a></div>
+                        <div class="project-description">Modern system for managing courses and users with multiple access levels and admin dashboard.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Supabase</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://sustineeducatia.techminds-academy.ro/">Susține Educația Platform</a></div>
+                        <div class="project-description">Dedicated website for European initiative focused on reducing school dropout.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://jinfotraining.ro/">Jinfo Training Platform</a></div>
+                        <div class="project-description">Responsive web platform for specialized courses in the HoReCa industry, featuring intuitive interface and efficient management of online/offline courses.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">jQuery</span>
+                            <span class="tech-tag">Velo by Wix</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://jinfocruise.ro/">Jinfo Cruise Platform</a></div>
+                        <div class="project-description">Web platform dedicated to presenting and booking cruises, with integrated booking system, multiple API integrations for real-time updates, and GDPR compliance.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://vibeselect.vercel.app/">VibeSelect (Personal Project)</a></div>
+                        <div class="project-description">A React application for selecting and recommending content based on vibes, integrating APIs from multiple sources for books, movies, TV, and music recommendations. Built with React, backend powered by Supabase, deployed on Vercel.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Vercel</span>
+                            <span class="tech-tag">Google Books API</span>
+                            <span class="tech-tag">TMDB API</span>
+                            <span class="tech-tag">Last.fm API</span>
+                            <span class="tech-tag">Spotify API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Romanian Content -->
+        <div id="ro-content" class="lang-content">
+            <div class="profile-section">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="https://i.ibb.co/vSb03xq/gigi-crop.webp" alt="Gheorghe Bardan">
+                    </div>
+                    <div class="profile-info">
+                        <h1>Gheorghe Bardan</h1>
+                        <div class="title">Web Developer & Trainer</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>gheorghebardan@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+40721181188</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>București, România</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="section-card">
+                        <h2 class="section-title">
+                            <i class="fas fa-user"></i>
+                            Despre Mine
+                        </h2>
+                        <p>Mă consider o persoană ambițioasă cu o dorință continuă de a învăța. Sunt o persoană de echipă, îmi plac proiectele provocatoare și vreau să-mi dezvolt cunoștințele.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Experiență Profesională
+                </h2>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Web Developer & Trainer</div>
+                        <div class="company">TechMinds Academy, București</div>
+                        <div class="duration">Ian 2025 - Prezent (8 luni)</div>
+                    </div>
+                    <div class="job-description">
+                        Combinat dezvoltare web și formare în educație digitală. Am proiectat și construit infrastructura digitală a academiei, inclusiv site-ul oficial, platforma de digitalizare pentru profesori (folosită de peste 200 de profesori), platforma eLearning (React, Supabase) și platforma „Susține Educația”. Am lucrat cu Git și VS Code. Ca trainer, am livrat lecții interactive de programare și robotică folosind Roblox Studio, MCreator etc., și ateliere pentru peste 200 de profesori.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Administrator Website</div>
+                        <div class="company">jinfotours.ro - J'INFO TOURS, București</div>
+                        <div class="duration">Dec 2023 - Prezent (1 an 9 luni)</div>
+                    </div>
+                    <div class="job-description">
+                        Gestionat și optimizat prezența online: management conținut, integrări API pentru sincronizare produse, dezvoltare frontend (HTML, CSS, JS/jQuery), design vizual pentru bannere și marketing digital pe social media.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Web Developer & UX Designer</div>
+                        <div class="company">jinfotraining.ro - Jinfo Training SRL, București</div>
+                        <div class="duration">Dec 2023 - Prezent (1 an 9 luni)</div>
+                    </div>
+                    <div class="job-description">
+                        Conceptualizat și implementat platformă web responsive pentru cursuri HoReCa: arhitectură web, frontend (HTML, CSS, JS, jQuery), backend cu Velo by Wix, design UX/UI. Rezultat în creșterea accesibilității programelor de training.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Web Developer & UX Designer</div>
+                        <div class="company">jinfocruise.ro - JinfoTours SRL, București</div>
+                        <div class="duration">Dec 2023 - Prezent (1 an 9 luni)</div>
+                    </div>
+                    <div class="job-description">
+                        Dezvoltat și gestionat platformă de rezervări croaziere folosind WordPress: creare site (HTML, CSS, JS), integrare sistem rezervări (CruiseHost), integrări multiple API, configurare UX/UI, conformitate GDPR.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Profesor IT</div>
+                        <div class="company">Academia Micilor Developeri, București</div>
+                        <div class="duration">Feb 2021 - Prezent (4 ani 7 luni)</div>
+                    </div>
+                    <div class="job-description">
+                        Predat IT copiilor 9-14: programare bazată pe blocuri (Scratch, Tunkable etc.), robotică (Virtual Robotics Toolkit, Lego), Lua în Roblox Studio. Livrat cursuri, creat unele noi, încărcat materiale, mentorat elevi.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Certificare Front End Web Developer</div>
+                        <div class="company">CodersLab, București</div>
+                        <div class="duration">Oct 2019 - Dec 2019 (3 luni)</div>
+                    </div>
+                    <div class="job-description">
+                        Training intensiv: HTML5/CSS3, JavaScript/ES6, SASS, jQuery, ReactJS pentru dezvoltare SPA.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Project Manager, Information Security Manager, Data Protection Officer (DPO)</div>
+                        <div class="company">NetBridge / BitFactor SRL, București</div>
+                        <div class="duration">Nov 2005 - Jul 2019 (13 ani 9 luni)</div>
+                    </div>
+                    <div class="job-description">
+                        Pentru platforma Okazii.ro: Gestionat proiecte (documentație, supraveghere), implementat sisteme de securitate (prevenire fraudă, monitorizare comportament utilizatori), creat documentație GDPR și asigurat conformitate.
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-grid">
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Educație
+                    </h2>
+                    
+                    <div class="education-item">
+                        <div class="degree">Formator (Trainer Certificat)</div>
+                        <div class="institution">Jinfo Travel</div>
+                        <div class="year">2024</div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="degree">Licență în Jurnalism și Științele Comunicării</div>
+                        <div class="institution">Universitatea Hyperion București</div>
+                        <div class="year">2007 - 2010</div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-car"></i>
+                        Altele
+                    </h2>
+                    <p>Permis de Conducere: Categoria B (obținut 09 Ian 2009)</p>
+                    <p>Limbi Străine: Engleză - Avansat</p>
+                </div>
+            </div>
+
+            <div class="skills-container">
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i>
+                        Competențe Tehnice
+                    </h2>
+                    <div class="tech-skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">ReactJS</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">jQuery</span>
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Supabase</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">SASS</span>
+                        <span class="skill-tag">Integrare API</span>
+                        <span class="skill-tag">Design Responsive</span>
+                        <span class="skill-tag">Design UX/UI</span>
+                        <span class="skill-tag">ECMAScript6</span>
+                        <span class="skill-tag">Webpack</span>
+                        <span class="skill-tag">JSON</span>
+                        <span class="skill-tag">C# (începător)</span>
+                        <span class="skill-tag">Lua</span>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-tools"></i>
+                        Instrumente & Competențe Soft
+                    </h2>
+                    <div class="tech-skills">
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Microsoft Office</span>
+                        <span class="skill-tag">Google Analytics</span>
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">Management Proiecte</span>
+                        <span class="skill-tag">GDPR</span>
+                        <span class="skill-tag">Prevenire Fraudă</span>
+                        <span class="skill-tag">Predare</span>
+                        <span class="skill-tag">Mentorat</span>
+                        <span class="skill-tag">Comunicare</span>
+                        <span class="skill-tag">Management Risc</span>
+                        <span class="skill-tag">Velo by Wix</span>
+                        <span class="skill-tag">Azure DevOps</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-project-diagram"></i>
+                    Proiecte Importante
+                </h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://techminds-academy.ro/">Site Web TechMinds Academy</a></div>
+                        <div class="project-description">Site oficial al academiei cu prezentare și sistem de plată online.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                            <span class="tech-tag">PHP</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://digitalizare.techminds-academy.ro/">Platforma de Digitalizare Profesori</a></div>
+                        <div class="project-description">Platformă program european folosită de peste 200 de profesori cu lecții interactive și dashboard admin.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://elearning.techminds-academy.ro/">Platforma eLearning</a></div>
+                        <div class="project-description">Sistem modern pentru gestionare cursuri și utilizatori cu niveluri multiple de acces și dashboard admin.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Supabase</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://sustineeducatia.techminds-academy.ro/">Platforma Susține Educația</a></div>
+                        <div class="project-description">Site dedicat inițiativei europene axate pe reducerea abandonului școlar.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://jinfotraining.ro/">Platforma Jinfo Training</a></div>
+                        <div class="project-description">Platformă web responsive pentru cursuri specializate în industria HoReCa, cu interfață intuitivă și gestionare eficientă a cursurilor online/offline.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">jQuery</span>
+                            <span class="tech-tag">Velo by Wix</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://jinfocruise.ro/">Platforma Jinfo Cruise</a></div>
+                        <div class="project-description">Platformă web dedicată prezentării și rezervării croazierelor, cu sistem integrat de rezervări, integrări multiple API pentru actualizări în timp real și conformitate GDPR.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://vibeselect.vercel.app/">VibeSelect (Proiect Personal)</a></div>
+                        <div class="project-description">Aplicație React pentru selectarea și recomandarea conținutului bazat pe vibe-uri, integrând API-uri din multiple surse pentru recomandări de cărți, filme, TV și muzică. Construită cu React, backend cu Supabase, deployată pe Vercel.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Vercel</span>
+                            <span class="tech-tag">Google Books API</span>
+                            <span class="tech-tag">TMDB API</span>
+                            <span class="tech-tag">Last.fm API</span>
+                            <span class="tech-tag">Spotify API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang, btn) {
+            // Hide all content
+            document.querySelectorAll('.lang-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected language content
+            document.getElementById(lang + '-content').classList.add('active');
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+        }
+
+        // Add smooth scrolling and parallax effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = scrolled * 0.5;
+            
+            document.querySelector('.floating-shapes').style.transform = `translateY(${parallax}px)`;
+        });
+
+        // Add hover effects to skill tags
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', () => {
+                tag.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            tag.addEventListener('mouseleave', () => {
+                tag.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add typing animation for title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            const titles = document.querySelectorAll('.profile-info h1');
+            titles.forEach(title => {
+                const originalText = title.textContent;
+                typeWriter(title, originalText, 150);
+            });
+        });
+
+        // Add intersection observer for animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all section cards
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.section-card, .experience-item, .project-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Add particle effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const particle = document.createElement('div');
+            particle.className = 'mouse-particle';
+            particle.style.cssText = `
+                position: fixed;
+                left: ${e.clientX}px;
+                top: ${e.clientY}px;
+                width: 4px;
+                height: 4px;
+                background: var(--primary-color);
+                border-radius: 50%;
+                pointer-events: none;
+                opacity: 0.6;
+                animation: particleFade 1s ease-out forwards;
+                z-index: 1000;
+            `;
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        });
+
+        // Add CSS for particle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes particleFade {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.6;
+                }
+                100% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add console message for developers
+        console.log(`
+        ╔══════════════════════════════════════╗
+        ║          Gheorghe Bardan             ║
+        ║      Web Developer & Trainer         ║
+        ║                                      ║
+        ║  📧 gheorghebardan@gmail.com         ║
+        ║  📱 +40721181188                     ║
+        ║  🌐 Bucharest, Romania               ║
+        ║                                      ║
+        ║  💻 HTML5 • CSS3 • JavaScript        ║
+        ║  ⚛️  React • PHP • MySQL             ║
+        ║  🎨 UX/UI Design • WordPress         ║
+        ║                                      ║
+        ║  Thanks for checking the console! 🚀 ║
+        ╚══════════════════════════════════════╝
+        `);
+    </script>
+</body>
+</html>
