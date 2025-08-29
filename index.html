@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gheorghe Bardan - Web Developer & Digital Trainer</title>
+    <title>Gheorghe Bardan - Frontend Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -61,52 +60,15 @@
             animation: float 20s infinite ease-in-out;
         }
 
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 70%;
-            left: 80%;
-            animation-delay: 2s;
-        }
-
-        .shape:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 40%;
-            left: 70%;
-            animation-delay: 4s;
-        }
-
-        .shape:nth-child(4) {
-            width: 100px;
-            height: 100px;
-            top: 80%;
-            left: 20%;
-            animation-delay: 6s;
-        }
+        .shape:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 120px; height: 120px; top: 70%; left: 80%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 60px; height: 60px; top: 40%; left: 70%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 100px; height: 100px; top: 80%; left: 20%; animation-delay: 6s; }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            33% {
-                transform: translateY(-30px) rotate(120deg);
-            }
-
-            66% {
-                transform: translateY(20px) rotate(240deg);
-            }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(20px) rotate(240deg); }
         }
 
         /* Header & Language Selector */
@@ -283,6 +245,7 @@
             border-left: 3px solid var(--primary-color);
             border-radius: 8px;
             background: rgba(59, 130, 246, 0.05);
+            margin-bottom: 1.5rem;
         }
 
         .experience-header {
@@ -316,6 +279,19 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h3 {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .tech-skills {
@@ -354,19 +330,11 @@
             border-radius: 12px;
             padding: 1rem;
             transition: all 0.3s ease;
-            text-decoration: none !important;
-            color: inherit;
         }
 
         .project-card:hover {
             border-color: var(--primary-color);
             box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
-            text-decoration: none !important;
-        }
-
-        .project-card:visited,
-        .project-card:active {
-            text-decoration: none !important;
         }
 
         .project-title {
@@ -378,7 +346,11 @@
 
         .project-title a {
             color: inherit;
-            text-decoration: none !important;
+            text-decoration: none;
+        }
+
+        .project-title a:hover {
+            text-decoration: underline;
         }
 
         .project-description {
@@ -452,29 +424,8 @@
         .lang-content.active {
             display: block;
         }
-
-        /* Footer */
-        .footer {
-            margin-top: 3rem;
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(59, 130, 246, 0.2);
-            background: rgba(15, 23, 42, 0.5);
-        }
-
-        .footer p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .footer .copyright {
-            color: var(--primary-color);
-            font-weight: 500;
-        }
     </style>
 </head>
-
 <body>
     <div class="background-animation">
         <div class="floating-shapes">
@@ -502,7 +453,7 @@
                     </div>
                     <div class="profile-info">
                         <h1>Gheorghe Bardan</h1>
-                        <div class="title">Web Developer & Digital Trainer</div>
+                        <div class="title">Frontend Developer</div>
                         <div class="contact-info">
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
@@ -524,10 +475,9 @@
                     <div class="section-card">
                         <h2 class="section-title">
                             <i class="fas fa-user"></i>
-                            About Me
+                            Professional Summary
                         </h2>
-                        <p>I consider myself an ambitious person with a continuous desire to learn. I'm a team player, I
-                            like challenging projects and I want to develop my knowledge.</p>
+                        <p>Frontend Developer with 4+ years of hands-on experience building modern, responsive web applications using React, JavaScript/TypeScript, and modern frontend workflows. Proven track record of developing user-friendly interfaces, integrating REST APIs, and collaborating with cross-functional teams. Strong background in both individual projects and educational platforms serving 200+ users. Passionate about clean, scalable code and delivering seamless user experiences across devices and browsers.</p>
                     </div>
                 </div>
             </div>
@@ -539,16 +489,12 @@
                 </h2>
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="job-title">Web Developer & Digital Trainer</div>
+                        <div class="job-title">Frontend Developer & Digital Trainer</div>
                         <div class="company">TechMinds Academy, Bucharest</div>
-                        <div class="duration">Jan 2025 - Present (8 months)</div>
+                        <div class="duration">January 2025 - Present</div>
                     </div>
                     <div class="job-description">
-                        Combined web development and digital education training. Designed and built academy's digital
-                        infrastructure including official website, teacher digitalization platform (used by 200+
-                        teachers), eLearning platform (React, Supabase), and “Susține Educația” platform. Worked with
-                        Git and VS Code. As trainer, delivered interactive programming and robotics lessons using Roblox
-                        Studio, MCreator, etc., and workshops for 200+ teachers.
+                        Developed modern React applications including eLearning platform with multi-level access control and admin dashboard using React and Supabase. Built responsive web applications serving 200+ teachers with interactive lessons and evaluation systems. Implemented modern frontend workflows using Git version control and VS Code for collaborative development. Created scalable component architecture for educational platforms with reusable UI components.
                     </div>
                 </div>
 
@@ -556,12 +502,10 @@
                     <div class="experience-header">
                         <div class="job-title">Website Administrator</div>
                         <div class="company">jinfotours.ro - J'INFO TOURS, Bucharest</div>
-                        <div class="duration">Dec 2023 - Present (1 year 9 months)</div>
+                        <div class="duration">December 2023 - Present</div>
                     </div>
                     <div class="job-description">
-                        Managed and optimized online presence: content management, API integrations for product
-                        synchronization, frontend development (HTML, CSS, JS/jQuery), visual design for banners, and
-                        digital marketing on social media.
+                        Maintained and optimized web applications using HTML5, CSS3, and JavaScript/jQuery. Implemented API integrations for automated product synchronization. Enhanced frontend interactivity and overall user experience. Created responsive visual elements for promotional campaigns.
                     </div>
                 </div>
 
@@ -569,12 +513,10 @@
                     <div class="experience-header">
                         <div class="job-title">Web Developer & UX Designer</div>
                         <div class="company">jinfotraining.ro - Jinfo Training SRL, Bucharest</div>
-                        <div class="duration">Dec 2023 - Present (1 year 9 months)</div>
+                        <div class="duration">December 2023 - Present</div>
                     </div>
                     <div class="job-description">
-                        Conceptualized and implemented responsive web platform for HoReCa courses: web architecture,
-                        frontend (HTML, CSS, JS, jQuery), backend with Velo by Wix, UX/UI design. Resulted in increased
-                        accessibility of training programs.
+                        Developed responsive web platform for HoReCa industry courses with optimal cross-device compatibility. Implemented modern JavaScript solutions using ES6+ features, jQuery for enhanced interactivity. Collaborated with stakeholders to deliver user-centered design solutions. Optimized application performance and ensured accessibility standards.
                     </div>
                 </div>
 
@@ -582,12 +524,10 @@
                     <div class="experience-header">
                         <div class="job-title">Web Developer & UX Designer</div>
                         <div class="company">jinfocruise.ro - JinfoTours SRL, Bucharest</div>
-                        <div class="duration">Dec 2023 - Present (1 year 9 months)</div>
+                        <div class="duration">December 2023 - Present</div>
                     </div>
                     <div class="job-description">
-                        Developed and managed cruise booking platform using WordPress: site creation (HTML, CSS, JS),
-                        booking system integration (CruiseHost), multiple API integrations, UX/UI configuration, GDPR
-                        compliance.
+                        Created WordPress-based cruise booking platform with advanced JavaScript customization. Integrated multiple REST APIs for real-time cruise availability and pricing updates. Implemented GDPR-compliant solutions following security best practices. Developed responsive booking system ensuring smooth user experience across devices.
                     </div>
                 </div>
 
@@ -595,37 +535,32 @@
                     <div class="experience-header">
                         <div class="job-title">IT Teacher</div>
                         <div class="company">Academia Micilor Developeri, Bucharest</div>
-                        <div class="duration">Feb 2021 - Dec 2024 (3 years 11 months)</div>
+                        <div class="duration">February 2021 - December 2024</div>
                     </div>
                     <div class="job-description">
-                        Taught IT to children 7-14: block-based programming (Scratch, Tunkable, etc.), robotics (Virtual
-                        Robotics Toolkit, Lego), Lua in Roblox Studio. Delivered courses, created new ones, uploaded
-                        materials, mentored students.
+                        Designed and delivered programming curricula for students aged 9-14. Developed educational content for e-learning platforms. Created interactive learning materials using various programming tools and frameworks. Mentored young developers in logical thinking and problem-solving skills.
                     </div>
                 </div>
 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="job-title">Front End Web Developer Certification</div>
+                        <div class="job-title">Frontend Web Developer Certification</div>
                         <div class="company">CodersLab, Bucharest</div>
-                        <div class="duration">Oct 2019 - Dec 2019 (3 months)</div>
+                        <div class="duration">October 2019 - December 2019</div>
                     </div>
                     <div class="job-description">
-                        Intensive training: HTML5/CSS3, JavaScript/ES6, SASS, jQuery, ReactJS for SPA development.
+                        Intensive training: HTML5/CSS3, JavaScript/ES6, SASS, jQuery, ReactJS for SPA development. Webpack, modern development workflows and best practices.
                     </div>
                 </div>
 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="job-title">Project Manager, Information Security Manager, Data Protection Officer
-                            (DPO)</div>
+                        <div class="job-title">Project Manager, Information Security Manager, Data Protection Officer</div>
                         <div class="company">NetBridge / BitFactor SRL, Bucharest</div>
-                        <div class="duration">Nov 2005 - Jul 2019 (13 years 9 months)</div>
+                        <div class="duration">November 2005 - July 2019 (13 years 9 months)</div>
                     </div>
                     <div class="job-description">
-                        For Okazii.ro platform: Managed projects (documentation, supervision), implemented security
-                        systems (fraud prevention, user behavior monitoring), crafted GDPR documentation and ensured
-                        compliance.
+                        Project: Okazii.ro - Major Romanian e-commerce platform. Project Manager (2006-2014): Developed documentation for platform sections, supervised implementations, collaborated with programming and design teams. Information Security Manager (2010-2019): Designed security systems for fraud prevention, implemented user behavior monitoring. Data Protection Officer (2018-2019): Crafted GDPR documentation and ensured platform compliance with EU regulations.
                     </div>
                 </div>
             </div>
@@ -636,27 +571,38 @@
                         <i class="fas fa-graduation-cap"></i>
                         Education
                     </h2>
-
+                    
                     <div class="education-item">
-                        <div class="degree">Certified Trainer</div>
-                        <div class="institution">Jinfo Travel</div>
+                        <div class="degree">Professional Trainer Certification</div>
+                        <div class="institution">Ministry of Labor</div>
                         <div class="year">2024</div>
                     </div>
-
                     <div class="education-item">
-                        <div class="degree">Bachelor's Degree in Journalism and Mass Communication</div>
+                        <div class="degree">Frontend Developer Certification</div>
+                        <div class="institution">CodersLab</div>
+                        <div class="year">2019</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Bachelor's - Journalism & Mass Communication</div>
                         <div class="institution">University Hyperion Bucharest</div>
                         <div class="year">2007 - 2010</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Programmer Analyst</div>
+                        <div class="institution">Information Technology</div>
+                        <div class="year">2001 - 2003</div>
                     </div>
                 </div>
 
                 <div class="section-card">
                     <h2 class="section-title">
                         <i class="fas fa-car"></i>
-                        Other
+                        Additional Info
                     </h2>
-                    <p>Driving License: Category B (acquired 09 Jan 2009)</p>
-                    <p>Foreign Languages: English - Advanced</p>
+                    <p><strong>Languages:</strong> English (Advanced), Romanian (Native)</p>
+                    <p><strong>Driving License:</strong> Category B</p>
+                    <p><strong>Availability:</strong> Immediate</p>
+                    <p><strong>Work Preference:</strong> Remote/On-site</p>
                 </div>
             </div>
 
@@ -666,50 +612,67 @@
                         <i class="fas fa-code"></i>
                         Technical Skills
                     </h2>
-                    <div class="tech-skills">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">ReactJS</span>
-                        <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">jQuery</span>
-                        <span class="skill-tag">WordPress</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Supabase</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">SASS</span>
-                        <span class="skill-tag">API Integration</span>
-                        <span class="skill-tag">Responsive Design</span>
-                        <span class="skill-tag">UX/UI Design</span>
-                        <span class="skill-tag">ECMAScript6</span>
-                        <span class="skill-tag">Webpack</span>
-                        <span class="skill-tag">JSON</span>
-                        <span class="skill-tag">C# (beginner)</span>
-                        <span class="skill-tag">Lua</span>
+                    <div class="skill-category">
+                        <h3>Frontend Core</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">JavaScript/TypeScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">HTML5/CSS3</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">ES6+</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Development Tools</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Webpack</span>
+                            <span class="skill-tag">Chrome DevTools</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks & Libraries</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">jQuery</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">SASS/SCSS</span>
+                            <span class="skill-tag">WordPress</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="section-card">
                     <h2 class="section-title">
                         <i class="fas fa-tools"></i>
-                        Tools & Soft Skills
+                        APIs & Backend
                     </h2>
-                    <div class="tech-skills">
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Photoshop</span>
-                        <span class="skill-tag">Microsoft Office</span>
-                        <span class="skill-tag">Google Analytics</span>
-                        <span class="skill-tag">Agile/Scrum</span>
-                        <span class="skill-tag">Project Management</span>
-                        <span class="skill-tag">GDPR</span>
-                        <span class="skill-tag">Fraud Prevention</span>
-                        <span class="skill-tag">Teaching</span>
-                        <span class="skill-tag">Mentorship</span>
-                        <span class="skill-tag">Communication</span>
-                        <span class="skill-tag">Risk Management</span>
-                        <span class="skill-tag">Velo by Wix</span>
-
+                    <div class="skill-category">
+                        <h3>API Integration</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">GraphQL</span>
+                            <span class="skill-tag">JSON</span>
+                            <span class="skill-tag">AJAX</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend & Databases</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Supabase</span>
+                            <span class="skill-tag">Velo by Wix</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">GDPR</span>
+                            <span class="skill-tag">Teaching</span>
+                            <span class="skill-tag">Mentorship</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -720,22 +683,29 @@
                     Featured Projects
                 </h2>
                 <div class="projects-grid">
-                    <a href="https://techminds-academy.ro/" class="project-card" target="_blank">
-                        <div class="project-title">TechMinds Academy Website</div>
-                        <div class="project-description">Official academy website with presentation and online payment
-                            system.</div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://vibeselect.vercel.app/" target="_blank">VibeSelect (Personal Project)</a></div>
+                        <div class="project-description">React application with modern hooks and state management. Integrated multiple REST APIs (Google Books, TMDB, Last.fm, Spotify). Deployed using modern CI/CD workflows on Vercel.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Vercel</span>
+                            <span class="tech-tag">APIs</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://techminds-academy.ro/" target="_blank">TechMinds Academy Website</a></div>
+                        <div class="project-description">Official academy website with presentation and online payment system.</div>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
                             <span class="tech-tag">JS</span>
                             <span class="tech-tag">PHP</span>
                         </div>
-                    </a>
-
-                    <a href="https://digitalizare.techminds-academy.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Teacher Digitalization Platform</div>
-                        <div class="project-description">European program platform used by 200+ trained teachers with
-                            interactive lessons and admin dashboard.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://digitalizare.techminds-academy.ro/" target="_blank">Teacher Digitalization Platform</a></div>
+                        <div class="project-description">European program platform used by 200+ trained teachers with interactive lessons and admin dashboard.</div>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
@@ -743,34 +713,27 @@
                             <span class="tech-tag">PHP</span>
                             <span class="tech-tag">SQL</span>
                         </div>
-                    </a>
-
-                    <a href="https://elearning.techminds-academy.ro/" class="project-card" target="_blank">
-                        <div class="project-title">eLearning Platform</div>
-                        <div class="project-description">Modern system for managing courses and users with multiple
-                            access levels and admin dashboard.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://elearning.techminds-academy.ro/" target="_blank">eLearning Platform</a></div>
+                        <div class="project-description">Modern system for managing courses and users with multiple access levels and admin dashboard.</div>
                         <div class="project-tech">
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Supabase</span>
                         </div>
-                    </a>
-
-                    <a href="https://sustineeducatia.techminds-academy.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Susține Educația Platform</div>
-                        <div class="project-description">Dedicated website for European initiative focused on reducing
-                            school dropout.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://sustineeducatia.techminds-academy.ro/" target="_blank">Susține Educația Platform</a></div>
+                        <div class="project-description">Dedicated website for European initiative focused on reducing school dropout.</div>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
                             <span class="tech-tag">JS</span>
                         </div>
-                    </a>
-
-                    <a href="https://jinfotraining.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Jinfo Training Platform</div>
-                        <div class="project-description">Responsive web platform for specialized courses in the HoReCa
-                            industry, featuring intuitive interface and efficient management of online/offline courses.
-                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://jinfotraining.ro/" target="_blank">Jinfo Training Platform</a></div>
+                        <div class="project-description">Responsive web platform for specialized courses in the HoReCa industry.</div>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
@@ -778,13 +741,10 @@
                             <span class="tech-tag">jQuery</span>
                             <span class="tech-tag">Velo by Wix</span>
                         </div>
-                    </a>
-
-                    <a href="https://jinfocruise.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Jinfo Cruise Platform</div>
-                        <div class="project-description">Web platform dedicated to presenting and booking cruises, with
-                            integrated booking system, multiple API integrations for real-time updates, and GDPR
-                            compliance.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://jinfocruise.ro/" target="_blank">Jinfo Cruise Platform</a></div>
+                        <div class="project-description">Web platform dedicated to presenting and booking cruises with integrated booking system and API integrations.</div>
                         <div class="project-tech">
                             <span class="tech-tag">WordPress</span>
                             <span class="tech-tag">HTML</span>
@@ -792,30 +752,9 @@
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">API Integration</span>
                         </div>
-                    </a>
-
-                    <a href="https://vibeselect.vercel.app/" class="project-card" target="_blank">
-                        <div class="project-title">VibeSelect - Smart Content Discovery (personal project)</div>
-                        <div class="project-description">Advanced React TypeScript application with intelligent content
-                            recommendations. Features real-time API integrations with Spotify, TMDB, and Google Books,
-                            built with modern architecture including Supabase backend, responsive design, and deployed
-                            on Vercel with CI/CD pipeline.</div>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Supabase</span>
-                            <span class="tech-tag">Vercel</span>
-                            <span class="tech-tag">Spotify API</span>
-                            <span class="tech-tag">TMDB API</span>
-                            <span class="tech-tag">Google Books API</span>
-                            <span class="tech-tag">Vite</span>
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </div>
-<footer class="footer">
-                <p>&copy; <span class="copyright">2025 Gheorghe Bardan</span> - All rights reserved</p>
-            </footer>
         </div>
 
         <!-- Romanian Content -->
@@ -827,7 +766,7 @@
                     </div>
                     <div class="profile-info">
                         <h1>Gheorghe Bardan</h1>
-                        <div class="title">Web Developer & Digital Trainer</div>
+                        <div class="title">Frontend Developer</div>
                         <div class="contact-info">
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
@@ -849,10 +788,9 @@
                     <div class="section-card">
                         <h2 class="section-title">
                             <i class="fas fa-user"></i>
-                            Despre Mine
+                            Rezumat Profesional
                         </h2>
-                        <p>Mă consider o persoană ambițioasă cu o dorință continuă de a învăța. Sunt o persoană de
-                            echipă, îmi plac proiectele provocatoare și vreau să-mi dezvolt cunoștințele.</p>
+                        <p>Frontend Developer cu peste 4 ani de experiență hands-on în construirea aplicațiilor web moderne și responsive folosind React, JavaScript/TypeScript și workflow-uri frontend moderne. Experiență dovedită în dezvoltarea interfețelor user-friendly, integrarea REST APIs și colaborarea cu echipe cross-funcționale. Background solid în proiecte individuale și platforme educaționale servind peste 200+ utilizatori. Pasionat de cod clean și scalabil și de livrarea experiențelor de utilizare seamless pe toate dispozitivele și browser-ele.</p>
                     </div>
                 </div>
             </div>
@@ -864,17 +802,12 @@
                 </h2>
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="job-title">Web Developer & Digital Trainer</div>
+                        <div class="job-title">Frontend Developer & Digital Trainer</div>
                         <div class="company">TechMinds Academy, București</div>
-                        <div class="duration">Ian 2025 - Prezent (8 luni)</div>
+                        <div class="duration">Ianuarie 2025 - Prezent</div>
                     </div>
                     <div class="job-description">
-                        Combinat dezvoltare web și formare în educație digitală. Am proiectat și construit
-                        infrastructura digitală a academiei, inclusiv site-ul oficial, platforma de digitalizare pentru
-                        profesori (folosită de peste 200 de profesori), platforma eLearning (React, Supabase) și
-                        platforma „Susține Educația”. Am lucrat cu Git și VS Code. Ca trainer, am livrat lecții
-                        interactive de programare și robotică folosind Roblox Studio, MCreator etc., și ateliere pentru
-                        peste 200 de profesori.
+                        Am dezvoltat aplicații React moderne incluzând platforma eLearning cu control multi-nivel de acces și dashboard admin folosind React și Supabase. Am construit aplicații web responsive servind peste 200+ profesori cu lecții interactive și sisteme de evaluare. Am implementat workflow-uri frontend moderne folosind control de versiune Git și VS Code pentru dezvoltare colaborativă. Am creat arhitectură de componente scalabilă pentru platforme educaționale cu componente UI refolosibile.
                     </div>
                 </div>
 
@@ -882,12 +815,10 @@
                     <div class="experience-header">
                         <div class="job-title">Administrator Website</div>
                         <div class="company">jinfotours.ro - J'INFO TOURS, București</div>
-                        <div class="duration">Dec 2023 - Prezent (1 an 9 luni)</div>
+                        <div class="duration">Decembrie 2023 - Prezent</div>
                     </div>
                     <div class="job-description">
-                        Gestionat și optimizat prezența online: management conținut, integrări API pentru sincronizare
-                        produse, dezvoltare frontend (HTML, CSS, JS/jQuery), design vizual pentru bannere și marketing
-                        digital pe social media.
+                        Am întreținut și optimizat aplicații web folosind HTML5, CSS3 și JavaScript/jQuery. Am implementat integrări API pentru sincronizarea automată de produse. Am îmbunătățit interactivitatea frontend și experiența generală a utilizatorului. Am creat elemente vizuale responsive pentru campanii promoționale.
                     </div>
                 </div>
 
@@ -895,12 +826,10 @@
                     <div class="experience-header">
                         <div class="job-title">Web Developer & UX Designer</div>
                         <div class="company">jinfotraining.ro - Jinfo Training SRL, București</div>
-                        <div class="duration">Dec 2023 - Prezent (1 an 9 luni)</div>
+                        <div class="duration">Decembrie 2023 - Prezent</div>
                     </div>
                     <div class="job-description">
-                        Conceptualizat și implementat platformă web responsive pentru cursuri HoReCa: arhitectură web,
-                        frontend (HTML, CSS, JS, jQuery), backend cu Velo by Wix, design UX/UI. Rezultat în creșterea
-                        accesibilității programelor de training.
+                        Am dezvoltat platformă web responsive pentru cursuri în industria HoReCa cu compatibilitate optimă cross-device. Am implementat soluții JavaScript moderne folosind caracteristici ES6+, jQuery pentru interactivitate îmbunătățită. Am colaborat cu stakeholderii pentru a livra soluții de design centrate pe utilizator. Am optimizat performanța aplicației și am asigurat standardele de accesibilitate.
                     </div>
                 </div>
 
@@ -908,12 +837,10 @@
                     <div class="experience-header">
                         <div class="job-title">Web Developer & UX Designer</div>
                         <div class="company">jinfocruise.ro - JinfoTours SRL, București</div>
-                        <div class="duration">Dec 2023 - Prezent (1 an 9 luni)</div>
+                        <div class="duration">Decembrie 2023 - Prezent</div>
                     </div>
                     <div class="job-description">
-                        Dezvoltat și gestionat platformă de rezervări croaziere folosind WordPress: creare site (HTML,
-                        CSS, JS), integrare sistem rezervări (CruiseHost), integrări multiple API, configurare UX/UI,
-                        conformitate GDPR.
+                        Am creat platformă de rezervări croaziere bazată pe WordPress cu customizare JavaScript avansată. Am integrat multiple REST APIs pentru actualizări în timp real ale disponibilității și prețurilor croazierelor. Am implementat soluții conforme GDPR urmând best practice-uri de securitate. Am dezvoltat sistem de rezervări responsive asigurând experiența smooth a utilizatorului pe toate dispozitivele.
                     </div>
                 </div>
 
@@ -921,37 +848,32 @@
                     <div class="experience-header">
                         <div class="job-title">Profesor IT</div>
                         <div class="company">Academia Micilor Developeri, București</div>
-                        <div class="duration">Feb 2021 - Dec 2024 (3 ani 11 luni)</div>
+                        <div class="duration">Februarie 2021 - Decembrie 2024</div>
                     </div>
                     <div class="job-description">
-                        Predat IT copiilor 7-14: programare bazată pe blocuri (Scratch, Tunkable etc.), robotică
-                        (Virtual Robotics Toolkit, Lego), Lua în Roblox Studio. Livrat cursuri, creat unele noi,
-                        încărcat materiale, mentorat elevi.
+                        Am proiectat și livrat curriculum de programare pentru studenții cu vârstele 9-14 ani. Am dezvoltat conținut educațional pentru platforme e-learning. Am creat materiale de învățare interactive folosind diverse tool-uri și framework-uri de programare. Am mentorat tineri developeri în gândirea logică și abilitățile de problem-solving.
                     </div>
                 </div>
 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="job-title">Certificare Front End Web Developer</div>
+                        <div class="job-title">Certificare Frontend Web Developer</div>
                         <div class="company">CodersLab, București</div>
-                        <div class="duration">Oct 2019 - Dec 2019 (3 luni)</div>
+                        <div class="duration">Octombrie 2019 - Decembrie 2019</div>
                     </div>
                     <div class="job-description">
-                        Training intensiv: HTML5/CSS3, JavaScript/ES6, SASS, jQuery, ReactJS pentru dezvoltare SPA.
+                        Training intensiv: HTML5/CSS3, JavaScript/ES6, SASS, jQuery, ReactJS pentru dezvoltarea SPA. Webpack, workflow-uri de dezvoltare moderne și best practices.
                     </div>
                 </div>
 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="job-title">Project Manager, Information Security Manager, Data Protection Officer
-                            (DPO)</div>
+                        <div class="job-title">Project Manager, Information Security Manager, Data Protection Officer</div>
                         <div class="company">NetBridge / BitFactor SRL, București</div>
-                        <div class="duration">Nov 2005 - Jul 2019 (13 ani 9 luni)</div>
+                        <div class="duration">Noiembrie 2005 - Iulie 2019 (13 ani 9 luni)</div>
                     </div>
                     <div class="job-description">
-                        Pentru platforma Okazii.ro: Gestionat proiecte (documentație, supraveghere), implementat sisteme
-                        de securitate (prevenire fraudă, monitorizare comportament utilizatori), creat documentație GDPR
-                        și asigurat conformitate.
+                        Proiect: Okazii.ro - Platformă majoră românească de e-commerce. Project Manager (2006-2014): Am dezvoltat documentație pentru secțiuni de platformă, am supravegheat implementările, am colaborat cu echipele de programare și design. Information Security Manager (2010-2019): Am proiectat sisteme de securitate pentru prevenirea fraudei, am implementat monitorizarea comportamentului utilizatorilor. Data Protection Officer (2018-2019): Am elaborat documentația GDPR și am asigurat conformitatea platformei cu regulamentele UE.
                     </div>
                 </div>
             </div>
@@ -962,27 +884,38 @@
                         <i class="fas fa-graduation-cap"></i>
                         Educație
                     </h2>
-
+                    
                     <div class="education-item">
-                        <div class="degree">Formator (Trainer Certificat)</div>
-                        <div class="institution">Jinfo Travel</div>
+                        <div class="degree">Certificare Formator Profesional</div>
+                        <div class="institution">Ministerul Muncii</div>
                         <div class="year">2024</div>
                     </div>
-
                     <div class="education-item">
-                        <div class="degree">Licență în Jurnalism și Științele Comunicării</div>
+                        <div class="degree">Certificare Frontend Developer</div>
+                        <div class="institution">CodersLab</div>
+                        <div class="year">2019</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Licență - Jurnalism & Comunicare în Masă</div>
                         <div class="institution">Universitatea Hyperion București</div>
                         <div class="year">2007 - 2010</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Analist Programator</div>
+                        <div class="institution">Tehnologia Informației</div>
+                        <div class="year">2001 - 2003</div>
                     </div>
                 </div>
 
                 <div class="section-card">
                     <h2 class="section-title">
                         <i class="fas fa-car"></i>
-                        Altele
+                        Informații Adiționale
                     </h2>
-                    <p>Permis de Conducere: Categoria B (obținut 09 Ian 2009)</p>
-                    <p>Limbi Străine: Engleză - Avansat</p>
+                    <p><strong>Limbi:</strong> Engleză (Avansat), Română (Nativ)</p>
+                    <p><strong>Permis Conducere:</strong> Categoria B</p>
+                    <p><strong>Disponibilitate:</strong> Imediat</p>
+                    <p><strong>Preferință Muncă:</strong> Remote/La birou</p>
                 </div>
             </div>
 
@@ -992,49 +925,67 @@
                         <i class="fas fa-code"></i>
                         Competențe Tehnice
                     </h2>
-                    <div class="tech-skills">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">ReactJS</span>
-                        <span class="skill-tag">PHP(începător)</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">jQuery</span>
-                        <span class="skill-tag">WordPress</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Supabase</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">SASS</span>
-                        <span class="skill-tag">Integrare API</span>
-                        <span class="skill-tag">Design Responsive</span>
-                        <span class="skill-tag">Design UX/UI</span>
-                        <span class="skill-tag">ECMAScript6</span>
-                        <span class="skill-tag">Webpack</span>
-                        <span class="skill-tag">JSON</span>
-                        <span class="skill-tag">C# (începător)</span>
-                        <span class="skill-tag">Lua</span>
+                    <div class="skill-category">
+                        <h3>Frontend Core</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">JavaScript/TypeScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">HTML5/CSS3</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">ES6+</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools de Dezvoltare</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Webpack</span>
+                            <span class="skill-tag">Chrome DevTools</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks & Librării</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">jQuery</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">SASS/SCSS</span>
+                            <span class="skill-tag">WordPress</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="section-card">
                     <h2 class="section-title">
                         <i class="fas fa-tools"></i>
-                        Instrumente & Competențe Soft
+                        APIs & Backend
                     </h2>
-                    <div class="tech-skills">
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Photoshop</span>
-                        <span class="skill-tag">Microsoft Office</span>
-                        <span class="skill-tag">Google Analytics</span>
-                        <span class="skill-tag">Agile/Scrum</span>
-                        <span class="skill-tag">Management Proiecte</span>
-                        <span class="skill-tag">GDPR</span>
-                        <span class="skill-tag">Prevenire Fraudă</span>
-                        <span class="skill-tag">Predare</span>
-                        <span class="skill-tag">Mentorat</span>
-                        <span class="skill-tag">Comunicare</span>
-                        <span class="skill-tag">Management Risc</span>
-                        <span class="skill-tag">Velo by Wix</span>
+                    <div class="skill-category">
+                        <h3>Integrare API</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">GraphQL</span>
+                            <span class="skill-tag">JSON</span>
+                            <span class="skill-tag">AJAX</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend & Baze de Date</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Supabase</span>
+                            <span class="skill-tag">Velo by Wix</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="tech-skills">
+                            <span class="skill-tag">Management Proiecte</span>
+                            <span class="skill-tag">GDPR</span>
+                            <span class="skill-tag">Predare</span>
+                            <span class="skill-tag">Mentorat</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1045,22 +996,29 @@
                     Proiecte Importante
                 </h2>
                 <div class="projects-grid">
-                    <a href="https://techminds-academy.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Site Web TechMinds Academy</div>
-                        <div class="project-description">Site oficial al academiei cu prezentare și sistem de plată
-                            online.</div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://vibeselect.vercel.app/" target="_blank">VibeSelect (Proiect Personal)</a></div>
+                        <div class="project-description">Aplicație React cu hooks moderne și management de state. Am integrat multiple REST APIs (Google Books, TMDB, Last.fm, Spotify). Deployed folosind workflow-uri CI/CD moderne pe Vercel.</div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Vercel</span>
+                            <span class="tech-tag">APIs</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://techminds-academy.ro/" target="_blank">Site Web TechMinds Academy</a></div>
+                        <div class="project-description">Site oficial al academiei cu prezentare și sistem de plată online.</div>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
                             <span class="tech-tag">JS</span>
                             <span class="tech-tag">PHP</span>
                         </div>
-                    </a>
-
-                    <a href="https://digitalizare.techminds-academy.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Platforma de Digitalizare Profesori</div>
-                        <div class="project-description">Platformă program european folosită de peste 200 de profesori
-                            cu lecții interactive și dashboard admin.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://digitalizare.techminds-academy.ro/" target="_blank">Platformă Digitalizare Profesori</a></div>
+                        <div class="project-description">Platformă program european folosită de peste 200+ profesori cu lecții interactive și dashboard admin.</div>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
@@ -1068,34 +1026,27 @@
                             <span class="tech-tag">PHP</span>
                             <span class="tech-tag">SQL</span>
                         </div>
-                    </a>
-
-                    <a href="https://elearning.techminds-academy.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Platforma eLearning</div>
-                        <div class="project-description">Sistem modern pentru gestionare cursuri și utilizatori cu
-                            niveluri multiple de acces și dashboard admin.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://elearning.techminds-academy.ro/" target="_blank">Platformă eLearning</a></div>
+                        <div class="project-description">Sistem modern pentru management cursuri și utilizatori cu niveluri multiple de acces și dashboard admin.</div>
                         <div class="project-tech">
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Supabase</span>
                         </div>
-                    </a>
-
-                    <a href="https://sustineeducatia.techminds-academy.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Platforma Susține Educația</div>
-                        <div class="project-description">Site dedicat inițiativei europene axate pe reducerea
-                            abandonului școlar.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://sustineeducatia.techminds-academy.ro/" target="_blank">Platformă Susține Educația</a></div>
+                        <div class="project-description">Site dedicat inițiativei europene axate pe reducerea abandonului școlar.</div>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
                             <span class="tech-tag">JS</span>
                         </div>
-                    </a>
-
-                    <a href="https://jinfotraining.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Platforma Jinfo Training</div>
-                        <div class="project-description">Platformă web responsive pentru cursuri specializate în
-                            industria HoReCa, cu interfață intuitivă și gestionare eficientă a cursurilor
-                            online/offline.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://jinfotraining.ro/" target="_blank">Platformă Jinfo Training</a></div>
+                        <div class="project-description">Platformă web responsive pentru cursuri specializate în industria HoReCa.</div>
                         <div class="project-tech">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
@@ -1103,13 +1054,10 @@
                             <span class="tech-tag">jQuery</span>
                             <span class="tech-tag">Velo by Wix</span>
                         </div>
-                    </a>
-
-                    <a href="https://jinfocruise.ro/" class="project-card" target="_blank">
-                        <div class="project-title">Platforma Jinfo Cruise</div>
-                        <div class="project-description">Platformă web dedicată prezentării și rezervării croazierelor,
-                            cu sistem integrat de rezervări, integrări multiple API pentru actualizări în timp real și
-                            conformitate GDPR.</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-title"><a href="https://jinfocruise.ro/" target="_blank">Platformă Jinfo Cruise</a></div>
+                        <div class="project-description">Platformă web dedicată prezentării și rezervării croazierelor cu sistem integrat de rezervări și integrări API.</div>
                         <div class="project-tech">
                             <span class="tech-tag">WordPress</span>
                             <span class="tech-tag">HTML</span>
@@ -1117,33 +1065,86 @@
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">API Integration</span>
                         </div>
-                    </a>
-
-                    <a href="https://vibeselect.vercel.app/" class="project-card" target="_blank">
-                        <div class="project-title">VibeSelect - Platformă Inteligentă de Descoperire Conținut (proiect
-                            personal)</div>
-                        <div class="project-description">Aplicație avansată React TypeScript cu recomandări inteligente
-                            de conținut. Include integrări API în timp real cu Spotify, TMDB și Google Books, construită
-                            cu arhitectură modernă incluzând backend Supabase, design responsive și deployată pe Vercel
-                            cu pipeline CI/CD.</div>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Supabase</span>
-                            <span class="tech-tag">Vercel</span>
-                            <span class="tech-tag">Spotify API</span>
-                            <span class="tech-tag">TMDB API</span>
-                            <span class="tech-tag">Google Books API</span>
-                            <span class="tech-tag">Vite</span>
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </div>
-             <footer class="footer">
-                <p>&copy; <span class="copyright">2025 Gheorghe Bardan</span> - Toate drepturile rezervate</p>
-            </footer>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer style="
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(59, 130, 246, 0.2);
+        padding: 2rem 0;
+        text-align: center;
+        margin-top: 4rem;
+    ">
+        <div style="
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        ">
+            <div style="
+                background: var(--gradient-primary);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: 600;
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            ">
+                Gheorghe Bardan
+            </div>
+            <div style="
+                color: var(--text-muted);
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            ">
+                Frontend Developer • Bucharest, Romania • 2025
+            </div>
+            <div style="
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            ">
+                <a href="mailto:gheorghebardan@gmail.com" style="
+                    color: var(--primary-color);
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    font-size: 0.9rem;
+                " onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--primary-color)'">
+                    <i class="fas fa-envelope"></i> gheorghebardan@gmail.com
+                </a>
+                <a href="tel:+40721181188" style="
+                    color: var(--primary-color);
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    font-size: 0.9rem;
+                " onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--primary-color)'">
+                    <i class="fas fa-phone"></i> +40721181188
+                </a>
+                <a href="https://gigibardan.github.io/cv/" target="_blank" style="
+                    color: var(--primary-color);
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    font-size: 0.9rem;
+                " onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--primary-color)'">
+                    <i class="fas fa-globe"></i> Portfolio
+                </a>
+            </div>
+            <div style="
+                margin-top: 1.5rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(59, 130, 246, 0.1);
+                color: var(--text-muted);
+                font-size: 0.8rem;
+            ">
+                Built with modern web technologies • React • JavaScript • CSS3
+            </div>
+        </div>
+    </footer>
 
     <script>
         function switchLanguage(lang, btn) {
@@ -1151,15 +1152,15 @@
             document.querySelectorAll('.lang-content').forEach(content => {
                 content.classList.remove('active');
             });
-
+            
             // Show selected language content
             document.getElementById(lang + '-content').classList.add('active');
-
+            
             // Update button states
             document.querySelectorAll('.lang-btn').forEach(button => {
                 button.classList.remove('active');
             });
-
+            
             // Add active class to clicked button
             btn.classList.add('active');
         }
@@ -1168,7 +1169,7 @@
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallax = scrolled * 0.5;
-
+            
             document.querySelector('.floating-shapes').style.transform = `translateY(${parallax}px)`;
         });
 
@@ -1177,7 +1178,7 @@
             tag.addEventListener('mouseenter', () => {
                 tag.style.transform = 'translateY(-3px) scale(1.05)';
             });
-
+            
             tag.addEventListener('mouseleave', () => {
                 tag.style.transform = 'translateY(0) scale(1)';
             });
@@ -1187,7 +1188,7 @@
         function typeWriter(element, text, speed = 100) {
             let i = 0;
             element.innerHTML = '';
-
+            
             function type() {
                 if (i < text.length) {
                     element.innerHTML += text.charAt(i);
@@ -1249,9 +1250,9 @@
                 animation: particleFade 1s ease-out forwards;
                 z-index: 1000;
             `;
-
+            
             document.body.appendChild(particle);
-
+            
             setTimeout(() => {
                 particle.remove();
             }, 1000);
@@ -1277,20 +1278,19 @@
         console.log(`
         ╔══════════════════════════════════════╗
         ║          Gheorghe Bardan             ║
-        ║      Web Developer & Trainer         ║
+        ║       Frontend Developer             ║
         ║                                      ║
         ║  📧 gheorghebardan@gmail.com         ║
         ║  📱 +40721181188                     ║
         ║  🌐 Bucharest, Romania               ║
         ║                                      ║
-        ║  💻 HTML5 • CSS3 • JavaScript        ║
-        ║  ⚛️  React • PHP • MySQL             ║
-        ║  🎨 UX/UI Design • WordPress         ║
+        ║  💻 React • JavaScript • TypeScript  ║
+        ║  ⚛️  HTML5 • CSS3 • REST APIs        ║
+        ║  🎨 Responsive Design • Git          ║
         ║                                      ║
         ║  Thanks for checking the console! 🚀 ║
         ╚══════════════════════════════════════╝
         `);
     </script>
 </body>
-
 </html>
